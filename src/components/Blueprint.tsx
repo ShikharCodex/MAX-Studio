@@ -1,7 +1,7 @@
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 
 const Blueprint = () => {
-  const lineVariants = {
+  const lineVariants: Variants = {
     hidden: { pathLength: 0, opacity: 0 },
     visible: { 
       pathLength: 1, 
