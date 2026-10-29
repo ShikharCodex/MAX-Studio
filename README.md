@@ -2,9 +2,9 @@
   <br />
     <h1 align="center">MAX Studio 🐾</h1>
   <p align="center">
-    <strong>Smart feeding. Simple care.</strong>
+    <strong>Smart feeding. Intelligent hydration. Optical vision care.</strong>
     <br />
-    An intelligently designed hardware system interface that completely automates your pet's feeding schedule. Precision engineering meets everyday convenience.
+    An engineered multi-node hardware station integrating precision kibble portioning, an ESP32-CAM optical live stream (10.38.133.55), and ultrasonic smart water reservoir automation via Arduino and relay pump control.
   </p>
 
   <p align="center">
@@ -19,36 +19,69 @@
 
 ## 🌟 Overview
 
-**MAX Studio** is the official web interface and architectural showcase for the MAX Smart Pet Feeder. Designed with a premium, glassmorphic aesthetic, the application provides a seamless integration of mechanical engineering and smart software. Watch how raw kibble transforms into a perfectly timed, accurately portioned meal through our beautifully animated UI.
+**MAX Studio** is the flagship web interface and architectural dashboard for the MAX Smart Pet Station. Designed with an ultra-sleek, industrial aesthetic, the application provides real-time telemetry, remote actuator triggering, and synchronized surveillance across three hardware nodes:
+1. **Smart Kibble Feeder Node** (`http://10.38.133.108`): IR boundary sensor mapping and servo auger dispensing.
+2. **ESP32-CAM Vision Node** (`http://10.38.133.55`): OV2640 2MP optical video stream, GPIO 4 flash LED toggle, night vision mode, and snapshot logging.
+3. **Smart Hydration Station Node**: HC-SR04 ultrasonic sonar depth measurement, Arduino microcontroller core, and 5V optocoupled relay for automatic water replenishment.
 
 ## ✨ Key Features
 
-- **Automated Feeding Engine**: Set precise schedules and gram-level portion controls directly from the web interface.
-- **Real-Time Detection**: View live metrics powered by infrared sensors that map food levels continuously.
-- **Acoustic Engineering**: Built to dispense silently to eliminate harsh rattling, ensuring a stress-free meal for your pet.
-- **Interactive System Blueprints**: Explore how the hardware works through responsive, animated SVG technical diagrams.
-- **Cloud Control**: Take command from anywhere. The cloud-synced web app keeps you connected to your pet's habits 24/7.
-- **Premium Aesthetics**: Fully responsive UI leveraging Tailwind CSS, featuring deep dark modes, frosted glassmorphism, and buttery smooth Framer Motion animations.
+- **ESP32-CAM Live Portal (`10.38.133.55`)**: Dedicated navigation buttons and interactive video section. Toggle between real-time direct MJPEG stream (`:81/stream`) and AI-assisted surveillance simulation with bounding box tracking, night vision, and snapshot capture.
+- **Ultrasonic Water Management**: Continuous depth telemetry via HC-SR04 ultrasonic sensor. Interactive cross-section reservoir visualizer with fluid dynamics and live distance readouts in centimeters.
+- **Arduino Relay Pump Trigger**: 5V optical relay energizes a 12V submersible pump with auto-refill triggers when liquid levels drop below 25%.
+- **Automated Feeding Engine**: Precision gram-level portion controls directly from the web interface.
+- **Interactive System Blueprints**: Full technical CAD-style SVG schematic with interactive pinout callouts for all 3 hardware subsystems.
+- **Command Center Dashboard**: Unified terminal with live switching between Feeder, Camera, and Water station nodes.
+- **Premium Aesthetics**: Built with Tailwind CSS, deep blacks, warm bronze/orange accents, cybernetic cyan hydration hues, and Framer Motion micro-animations.
 
 ## 🛠️ Technology Stack
 
 | Category | Technology |
 | --- | --- |
-| **Framework** | [React 18](https://react.dev/) |
+| **Framework** | [React 19](https://react.dev/) |
 | **Build Tool** | [Vite](https://vitejs.dev/) |
-| **Styling** | [Tailwind CSS](https://tailwindcss.com/) |
+| **Styling** | [Tailwind CSS v4](https://tailwindcss.com/) |
 | **Animations** | [Framer Motion](https://www.framer.com/motion/) |
 | **Icons** | [Lucide React](https://lucide.dev/) |
-| **Linting** | [Oxlint](https://oxc.rs/docs/guide/usage/linter.html) & ESLint |
+| **Hardware Core** | ESP32-CAM (OV2640), Arduino MCU, HC-SR04, 5V Relay, Servo Auger |
+| **Linting** | [Oxlint](https://oxc.rs/docs/guide/usage/linter.html) & TypeScript |
+
+## 🌐 Network Device Architecture
+
+| Node | Hardware | Protocol / Port | Target Address |
+| --- | --- | --- | --- |
+| **Vision Cam** | ESP32-CAM (AI-Thinker) | HTTP / MJPEG (Port 80/81) | `http://10.38.133.55` |
+| **Feeder Controller** | ESP8266 / ESP32 | HTTP REST (Port 8080) | `http://10.38.133.108` |
+| **Hydration Controller** | Arduino Nano (ATmega328P) | Digital Pins D8, D9, D10 | Subnet Serial/Mesh |
+
+## 📂 Project Structure
+
+```text
+MAX-Studio/
+├── public/                 # Static assets, camera captures & vector icons
+│   ├── esp32_cam_feed.jpg  # Daytime camera capture asset
+│   └── esp32_cam_night.jpg # Night vision capture asset
+├── src/
+│   ├── components/
+│   │   ├── Navbar.tsx         # Navigation header with direct 10.38.133.55 & 10.38.133.108 links
+│   │   ├── Hero.tsx           # Multi-node status landing hero
+│   │   ├── ProjectStory.tsx   # Project mission statement
+│   │   ├── HowItWorks.tsx     # 6-step hardware & software workflow
+│   │   ├── Features.tsx       # Bento grid highlighting Feeder, Camera & Water modules
+│   │   ├── CameraSection.tsx  # ESP32-CAM live stream, controls & telemetry (10.38.133.55)
+│   │   ├── WaterModule.tsx    # Ultrasonic HC-SR04 depth sensor & Arduino relay station
+│   │   ├── LiveControl.tsx    # Multi-node interactive terminal & live switcher
+│   │   ├── Blueprint.tsx      # CAD schematic diagram with complete subsystem pinouts
+│   │   ├── Team.tsx           # Engineering team roster
+│   │   └── Footer.tsx         # Network endpoints and project metadata
+│   ├── App.tsx             # Root layout orchestrator
+│   └── index.css           # Global tokens & custom styling
+└── package.json
+```
 
 ## 🚀 Quick Start
 
-### Prerequisites
-Make sure you have [Node.js](https://nodejs.org/) (v18+ recommended) and `npm` installed.
-
-### Installation
-
-1. **Clone the repository:**
+1. **Clone repository:**
    ```bash
    git clone https://github.com/ShikharCodex/MAX-Studio.git
    cd MAX-Studio
@@ -59,60 +92,17 @@ Make sure you have [Node.js](https://nodejs.org/) (v18+ recommended) and `npm` i
    npm install
    ```
 
-3. **Start the development server:**
+3. **Start development server:**
    ```bash
    npm run dev
    ```
 
-4. **Build for production:**
+4. **Build production bundle:**
    ```bash
    npm run build
    ```
 
-## 📂 Project Structure
-
-```text
-MAX-Studio/
-├── public/                 # Static assets
-├── src/
-│   ├── assets/             # Images and global media
-│   ├── components/         # Reusable React components
-│   │   ├── FeederVisual.tsx   # Core SVG animations for the feeder
-│   │   ├── Hero.tsx           # Premium landing hero section
-│   │   ├── HowItWorks.tsx     # Animated zig-zag scrolling layout
-│   │   ├── LiveControl.tsx    # Dashboard for active feeder control
-│   │   └── ...
-│   ├── App.tsx             # Main application layout and routing
-│   ├── index.css           # Global Tailwind directives and custom variables
-│   └── main.tsx            # React root injection
-├── tailwind.config.js      # Tailwind theme configuration
-├── vite.config.ts          # Vite build configuration
-└── package.json            # Dependencies and scripts
-```
-
-## 🎨 Design System
-
-MAX Studio uses a carefully curated color palette tailored for an industrial yet organic aesthetic:
-- **Background**: Deep rich blacks (`#0a0a0a`)
-- **Accents**: Earthy bronze/gold (`#d97d54`) and muted olive greens (`#4f6c58`)
-- **Typography**: Clean, geometric sans-serif fonts optimized for technical readouts and elegant headers.
-
-## 🤝 Contributing
-
-Contributions, issues, and feature requests are welcome! 
-Feel free to check the [issues page](https://github.com/ShikharCodex/MAX-Studio/issues) if you want to contribute.
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
 ---
 <p align="center">
-  <i>Crafted with ❤️ for modern pet care.</i>
+  <i>Engineered by Shikha · Siddhi · Shikhar · Kartik. Crafted for modern pet care.</i>
 </p>

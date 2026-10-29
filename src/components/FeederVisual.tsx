@@ -145,27 +145,27 @@ const FeederVisual = () => {
           </motion.g>
 
           {/* PERFECTLY RESPONSIVE SVG TEXT CALLOUTS */}
-          <g className="font-mono text-[14px] fill-foreground/80 tracking-widest uppercase font-bold">
+          <g className="font-mono text-[14px] fill-white tracking-widest uppercase font-bold">
             
             {/* FOOD RESERVOIR */}
-            <motion.line initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ delay: 1.8, duration: 0.8 }} x1="160" y1="150" x2="0" y2="100" stroke="currentColor" strokeWidth="1" opacity="0.4" />
-            <motion.circle initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 1.8 }} cx="160" cy="150" r="3" fill="currentColor" opacity="0.8"/>
-            <motion.text initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 2.6 }} x="0" y="90" textAnchor="middle">FOOD RESERVOIR</motion.text>
+            <motion.line initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ delay: 1.8, duration: 0.8 }} x1="160" y1="150" x2="0" y2="100" stroke="#ffffff" strokeWidth="1" opacity="0.6" />
+            <motion.circle initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 1.8 }} cx="160" cy="150" r="3" fill="#ffffff" opacity="0.9"/>
+            <motion.text initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 2.6 }} x="0" y="90" textAnchor="middle" fill="#ffffff">FOOD RESERVOIR</motion.text>
 
             {/* SERVO MOTOR */}
-            <motion.line initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ delay: 2.0, duration: 0.8 }} x1="240" y1="280" x2="420" y2="240" stroke="currentColor" strokeWidth="1" opacity="0.4" />
-            <motion.circle initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 2.0 }} cx="240" cy="280" r="3" fill="currentColor" opacity="0.8"/>
-            <motion.text initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 2.8 }} x="420" y="230" textAnchor="middle">SERVO MOTOR</motion.text>
+            <motion.line initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ delay: 2.0, duration: 0.8 }} x1="240" y1="280" x2="420" y2="240" stroke="#ffffff" strokeWidth="1" opacity="0.6" />
+            <motion.circle initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 2.0 }} cx="240" cy="280" r="3" fill="#ffffff" opacity="0.9"/>
+            <motion.text initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 2.8 }} x="420" y="230" textAnchor="middle" fill="#ffffff">SERVO MOTOR</motion.text>
 
             {/* MICROCONTROLLER */}
-            <motion.line initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ delay: 2.2, duration: 0.8 }} x1="170" y1="335" x2="-20" y2="335" stroke="currentColor" strokeWidth="1" opacity="0.4" />
-            <motion.circle initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 2.2 }} cx="170" cy="335" r="3" fill="currentColor" opacity="0.8"/>
-            <motion.text initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 3.0 }} x="-20" y="325" textAnchor="middle">MICROCONTROLLER</motion.text>
+            <motion.line initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ delay: 2.2, duration: 0.8 }} x1="170" y1="335" x2="-20" y2="335" stroke="#ffffff" strokeWidth="1" opacity="0.6" />
+            <motion.circle initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 2.2 }} cx="170" cy="335" r="3" fill="#ffffff" opacity="0.9"/>
+            <motion.text initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 3.0 }} x="-20" y="325" textAnchor="middle" fill="#ffffff">MICROCONTROLLER</motion.text>
 
             {/* DISPENSER */}
-            <motion.line initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ delay: 2.4, duration: 0.8 }} x1="230" y1="460" x2="420" y2="460" stroke="currentColor" strokeWidth="1" opacity="0.4" />
-            <motion.circle initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 2.4 }} cx="230" cy="460" r="3" fill="currentColor" opacity="0.8"/>
-            <motion.text initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 3.2 }} x="420" y="450" textAnchor="middle">DISPENSER</motion.text>
+            <motion.line initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ delay: 2.4, duration: 0.8 }} x1="230" y1="460" x2="420" y2="460" stroke="#ffffff" strokeWidth="1" opacity="0.6" />
+            <motion.circle initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 2.4 }} cx="230" cy="460" r="3" fill="#ffffff" opacity="0.9"/>
+            <motion.text initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 3.2 }} x="420" y="450" textAnchor="middle" fill="#ffffff">DISPENSER</motion.text>
 
           </g>
         </svg>
