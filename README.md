@@ -104,5 +104,6 @@ MAX-Studio/
 
 ---
 <p align="center">
+  <b>Project Mentor:</b> Akanksha Tripathi Ma'am<br/>
   <i>Engineered by Shikha · Siddhi · Shikhar · Kartik. Crafted for modern pet care.</i>
 </p>

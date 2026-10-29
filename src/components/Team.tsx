@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Award, Sparkles } from 'lucide-react';
 
 const teamMembers = [
   { id: '01', name: 'SHIKHA', role: 'Senior Architecture Head, Software/Hardware' },
@@ -11,9 +12,12 @@ const Team = () => {
   return (
     <section id="team" className="py-24 md:py-40 bg-[#08090d] text-white relative border-t border-white/10">
       <div className="container mx-auto px-4 sm:px-6 md:px-12">
+        
+        {/* Section Header */}
         <div className="mb-16 md:mb-24 flex flex-col md:flex-row md:items-end justify-between gap-6 md:gap-8">
           <div>
-            <h2 className="text-xs md:text-sm font-mono tracking-widest text-accent-orange mb-3 md:mb-4 uppercase font-bold">
+            <h2 className="text-xs md:text-sm font-mono tracking-widest text-accent-orange mb-3 md:mb-4 uppercase font-bold flex items-center gap-2">
+              <Sparkles size={14} />
               The People Behind It
             </h2>
             <h3 className="text-3xl sm:text-5xl md:text-6xl font-display font-bold tracking-tight text-white">
@@ -25,6 +29,7 @@ const Team = () => {
           </div>
         </div>
 
+        {/* Team Members List */}
         <div className="flex flex-col">
           {teamMembers.map((member, index) => (
             <motion.div
@@ -58,6 +63,46 @@ const Team = () => {
           <div className="border-t border-white/10 w-full"></div>
         </div>
 
+        {/* DISTINGUISHED FACULTY MENTOR CARD */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="mt-16 sm:mt-24 relative rounded-3xl p-8 sm:p-12 md:p-14 overflow-hidden border border-accent-orange/40 bg-gradient-to-br from-[#131722] via-[#0d1017] to-[#08090d] shadow-[0_20px_60px_rgba(0,0,0,0.7)]"
+        >
+          {/* Ambient Gold & Orange Glow */}
+          <div className="absolute top-0 right-0 w-96 h-96 bg-accent-orange/15 rounded-full blur-[100px] pointer-events-none"></div>
+          <div className="absolute bottom-0 left-0 w-72 h-72 bg-amber-500/10 rounded-full blur-[90px] pointer-events-none"></div>
+
+          <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+            <div className="space-y-4 max-w-2xl">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent-orange/20 border border-accent-orange/40 text-accent-orange text-xs font-mono tracking-widest uppercase font-bold shadow-sm">
+                <Award size={15} className="text-accent-orange" />
+                <span>PROJECT MENTOR & GUIDE</span>
+              </div>
+              
+              <h3 className="text-3xl sm:text-5xl md:text-6xl font-display font-bold tracking-tight text-white">
+                Akanksha Tripathi Ma'am
+              </h3>
+              
+              <p className="text-white/70 text-base sm:text-lg font-light leading-relaxed">
+                Project Mentor and Academic Guide, providing invaluable technical mentorship, architectural oversight, and continuous encouragement throughout the inception and development of MAX Studio.
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row lg:flex-col items-start lg:items-end gap-3 font-mono text-xs">
+              <div className="px-4 py-2 rounded-xl bg-white/5 border border-white/15 text-white/90 font-medium">
+                FACULTY SUPERVISOR
+              </div>
+              <div className="px-4 py-2 rounded-xl bg-accent-orange/10 border border-accent-orange/30 text-accent-orange font-bold">
+                MAX STUDIO ADVISOR
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Closing Tagline */}
         <motion.div
           className="mt-20 md:mt-32 text-center relative"
           initial={{ opacity: 0, y: 30 }}
@@ -73,6 +118,7 @@ const Team = () => {
             MAX STUDIO // 2026
           </p>
         </motion.div>
+
       </div>
     </section>
   );
